@@ -1,0 +1,53 @@
+package com.demo.hibernate.desafio1jadr.entities;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class ContratoDaoImpl implements ContratoDaoI {
+	
+	@Autowired
+	private EntityManager entityManager;
+
+	@Override
+	public void insert(Contrato contrato) {
+		
+		
+
+	}
+
+	@Override
+	public List<Contrato> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Contrato findById(Long idContrato) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Contrato> findByClientId(Long idCliente) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(Contrato contrato, Long id) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

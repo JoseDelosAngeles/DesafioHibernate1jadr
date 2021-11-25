@@ -1,0 +1,5 @@
+package com.demo.hibernate.desafio1jadr.services;
+
+public class HibernateServicioImpl implements HibernateServicioI {
+
+}

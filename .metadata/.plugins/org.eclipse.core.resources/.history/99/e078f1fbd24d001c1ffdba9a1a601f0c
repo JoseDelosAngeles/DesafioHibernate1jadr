@@ -1,0 +1,17 @@
+package com.demo.hibernate.desafio1jadr.entities;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "T_CONTRACT")
+public class Contrato {
+	
+	private Long id;
+	
+	private Cliente clienteId;
+	
+	private Double price;
+	
+
+}

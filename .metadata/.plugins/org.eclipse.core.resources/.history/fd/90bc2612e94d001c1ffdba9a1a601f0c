@@ -1,0 +1,9 @@
+package com.demo.hibernate.desafio1jadr.services;
+
+import com.demo.hibernate.desafio1jadr.entities.Cliente;
+
+public interface HibernateServicioI {
+	
+	public Cliente buscarCliente(Long idCliente);
+
+}

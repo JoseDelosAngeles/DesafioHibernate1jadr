@@ -19,6 +19,12 @@ public class Cliente {
 	
 	private String nombre;
 	
+	private String primerApellido;
+	
+	private String segundoApellido;
+	
+	private String docIdentidad;
+	
 	private List<Contrato> contractsList;
 
 	@Id
@@ -47,6 +53,33 @@ public class Cliente {
 
 	public void setContractsList(List<Contrato> contractsList) {
 		this.contractsList = contractsList;
+	}
+
+	@Column(name="PRIMER_APELLIDO")
+	public String getPrimerApellido() {
+		return primerApellido;
+	}
+
+	public void setPrimerApellido(String primerApellido) {
+		this.primerApellido = primerApellido;
+	}
+
+	@Column(name="SEGUNDO_APELLIDO")
+	public String getSegundoApellido() {
+		return segundoApellido;
+	}
+
+	public void setSegundoApellido(String segundoApellido) {
+		this.segundoApellido = segundoApellido;
+	}
+
+	@Column(name="DOC_IDENTIDAD", nullable = false, length = 9, unique = true)
+	public String getDocIdentidad() {
+		return docIdentidad;
+	}
+
+	public void setDocIdentidad(String docIdentidad) {
+		this.docIdentidad = docIdentidad;
 	}
 	
 	

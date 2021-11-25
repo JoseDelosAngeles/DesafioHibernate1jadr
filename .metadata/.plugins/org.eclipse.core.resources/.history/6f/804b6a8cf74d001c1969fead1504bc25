@@ -1,0 +1,62 @@
+package com.demo.hibernate.desafio1jadr.entities;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
+
+import org.hibernate.Session;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class ContratoDaoImpl implements ContratoDaoI {
+	
+	@Autowired
+	private EntityManager entityManager;
+
+	@Override
+	@Transactional
+	public void insert(Contrato contrato) {
+		Session session = entityManager.unwrap(Session.class);
+		
+		session.save(contrato);
+		
+		session.close();
+		
+	}
+
+	@Override
+	public List<Contrato> findAll() {
+		Session session = entityManager.unwrap(Session.class);
+		
+		List<Contrato> listaContratos = session.createQuery("FROM Contrato").getResultList();
+		
+		return listaContratos;
+	}
+
+	@Override
+	public Contrato findById(Long idContrato) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Contrato> findByClientId(Long idCliente) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(Contrato contrato, Long id) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

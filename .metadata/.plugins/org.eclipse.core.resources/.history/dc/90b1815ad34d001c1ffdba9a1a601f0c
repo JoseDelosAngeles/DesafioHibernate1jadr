@@ -1,0 +1,50 @@
+package com.demo.hibernate.desafio1jadr.entities;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "T_CONTRACT")
+public class Contrato {
+	
+	private Long id;
+	
+	private Cliente clienteId;
+	
+	private Double price;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	@Column(name="CLIENTE")
+	public Cliente getClienteId() {
+		return clienteId;
+	}
+
+	public void setClienteId(Cliente clienteId) {
+		this.clienteId = clienteId;
+	}
+
+	@Column(name="PRECIO")
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+	
+	
+
+}

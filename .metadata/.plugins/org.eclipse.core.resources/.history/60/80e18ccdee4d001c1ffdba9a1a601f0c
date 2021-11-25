@@ -1,0 +1,15 @@
+package com.demo.hibernate.desafio1jadr.services;
+
+import com.demo.hibernate.desafio1jadr.entities.Cliente;
+
+public interface HibernateServicioI {
+	
+	public Cliente buscarCliente(Long idCliente);
+	
+	public void insertar(Cliente cliente);
+	
+	public Cliente buscarPorNombre(String nombre);
+	
+	public Cliente buscarPorApellidos(String apellido1, String apellido2);
+
+}

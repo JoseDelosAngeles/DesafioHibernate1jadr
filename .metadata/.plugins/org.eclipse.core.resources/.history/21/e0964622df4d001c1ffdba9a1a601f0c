@@ -1,0 +1,5 @@
+package com.demo.hibernate.desafio1jadr.entities;
+
+public class Empresa {
+
+}

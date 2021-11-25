@@ -1,5 +1,7 @@
 package com.demo.hibernate.desafio1jadr.entities;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
@@ -34,6 +36,60 @@ public class ClienteDaoImpl implements ClienteDaoI {
 		session.close();
 		
 		return cliente;
+	}
+
+	@Override
+	public List<Cliente> findAll() {
+		Session session = entityManager.unwrap(Session.class);
+		
+		List<Cliente> lista = session.createQuery("FROM Cliente").getResultList();
+		
+		session.close();
+		return lista;
+	}
+
+	@Override
+	public Cliente findByName(String nombre) {
+		Session session = entityManager.unwrap(Session.class);
+		
+		Cliente cliente = (Cliente)session.createQuery("FROM Cliente WHERE nombre='" + nombre +"'").uniqueResult();
+		session.close();
+		
+		return cliente;
+	}
+
+	@Override
+	public Cliente findBySurnames(String surname1, String surname2) {
+		Session session = entityManager.unwrap(Session.class);
+		Cliente cliente = (Cliente)session.createQuery("FROM Cliente WHERE primerApellido='"+surname1 + "' AND segundoApellido='"+surname2+"'").uniqueResult();
+		session.close();
+		return cliente;
+	}
+
+	@Override
+	@Transactional
+	public void update(Cliente cliente, Long id) {
+		Session session = entityManager.unwrap(Session.class);
+		Cliente clienteGuardado = session.get(Cliente.class, id);
+		
+		clienteGuardado.setNombre(cliente.getNombre());
+		clienteGuardado.setPrimerApellido(cliente.getPrimerApellido());
+		clienteGuardado.setSegundoApellido(cliente.getSegundoApellido());
+		clienteGuardado.setDocIdentidad(cliente.getDocIdentidad());
+		
+		session.update(clienteGuardado);
+	
+		session.close();
+	}
+
+	@Override
+	@Transactional
+	public void delete(Long id) {
+		Session session = entityManager.unwrap(Session.class);
+		Cliente clienteBorrar = session.get(Cliente.class, id);
+		session.delete(clienteBorrar);
+		session.close();
+		
 	}
 
 }

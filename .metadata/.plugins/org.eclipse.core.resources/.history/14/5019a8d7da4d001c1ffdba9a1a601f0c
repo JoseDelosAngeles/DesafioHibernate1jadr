@@ -1,0 +1,8 @@
+package com.demo.hibernate.desafio1jadr.entities;
+
+public interface ClienteDaoI {
+
+	public void insertar(Cliente cliente);
+	
+	public Cliente findById(Long id);
+}

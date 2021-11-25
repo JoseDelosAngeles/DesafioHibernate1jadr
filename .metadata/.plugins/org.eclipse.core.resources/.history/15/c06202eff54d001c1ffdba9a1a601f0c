@@ -1,0 +1,19 @@
+package com.demo.hibernate.desafio1jadr.entities;
+
+import java.util.List;
+
+public interface ContratoDaoI {
+	
+	public void insertar(Contrato contrato);
+	
+	public Contrato findById(Long idContrato);
+	
+	public List<Contrato> findAll();
+	
+
+	
+	public void update(Cliente cliente, Long id);
+	
+	public void delete(Long id);
+
+}

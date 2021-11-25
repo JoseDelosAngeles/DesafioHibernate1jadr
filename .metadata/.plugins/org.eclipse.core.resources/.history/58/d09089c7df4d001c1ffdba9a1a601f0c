@@ -1,0 +1,26 @@
+package com.demo.hibernate.desafio1jadr.entities;
+
+import java.util.List;
+
+@Repository
+public class EmpresaDaoImpl implements EmpresaDaoI {
+
+	@Override
+	public void insertar(Empresa empresa) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public List<Empresa> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Empresa findById(Long idEmpresa) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,14 @@
+package com.demo.hibernate.desafio1jadr.services;
+
+public class HibernateServicioImpl implements HibernateServicioI {
+
+	@Autowired
+	private ClienteDaoI clienteDao
+	
+	@Override
+	public Cliente buscarCliente(Long idCliente) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

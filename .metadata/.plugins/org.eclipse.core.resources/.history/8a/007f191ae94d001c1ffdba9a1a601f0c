@@ -1,0 +1,20 @@
+package com.demo.hibernate.desafio1jadr.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.demo.hibernate.desafio1jadr.entities.Cliente;
+import com.demo.hibernate.desafio1jadr.entities.ClienteDaoI;
+
+@Service
+public class HibernateServicioImpl implements HibernateServicioI {
+
+	@Autowired
+	private ClienteDaoI clienteDao;
+	
+	@Override
+	public Cliente buscarCliente(Long idCliente) {
+		return clienteDao.findById(idCliente);
+	}
+
+}

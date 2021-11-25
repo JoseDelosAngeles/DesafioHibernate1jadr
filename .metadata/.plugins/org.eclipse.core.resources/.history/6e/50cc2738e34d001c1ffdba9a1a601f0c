@@ -1,0 +1,56 @@
+package com.demo.hibernate.desafio1jadr;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.demo.hibernate.desafio1jadr.entities.Empresa;
+import com.demo.hibernate.desafio1jadr.entities.EmpresaDaoI;
+
+@SpringBootApplication
+public class Desafio1jadrApplication implements CommandLineRunner {
+	
+	@Autowired
+	private EmpresaDaoI empresaDao;
+
+	public static void main(String[] args) {
+		SpringApplication.run(Desafio1jadrApplication.class, args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+/*		Cliente cliente = new Cliente();
+		cliente.setNombre("Manolo");
+		clienteDao.insertar(cliente);
+		cliente = clienteDao.findById(1L);
+		System.out.println(cliente.getNombre());
+		*/
+		Empresa empresa = new Empresa();
+		empresa.setNombre("NTTSevilla");
+		empresa.setDireccion("Av. de la Innovación, 2, 41020 Sevilla");
+		empresaDao.insertar(empresa);
+		
+		Empresa empresa2 = new Empresa();
+		empresa2.setNombre("Altran");
+		empresa2.setDireccion("C. Hispano Aviación, 11, 41309 La Rinconada, Sevilla");
+		empresaDao.insertar(empresa2);
+		
+		Empresa empresa3 = new Empresa();
+		empresa3.setNombre("Ayesa");
+		empresa3.setDireccion("C. Marie Curie, 2, 41092 Sevilla");
+		empresaDao.insertar(empresa3);
+		
+		List<Empresa> lista = empresaDao.findAll();
+		
+		for(Empresa e : lista) {
+			System.out.println("Empresa: " + e.getNombre() + ", Dirección: " + e.getDireccion());
+		}
+		
+		
+		
+	}
+
+}
